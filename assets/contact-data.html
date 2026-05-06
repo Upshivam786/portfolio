@@ -93,9 +93,30 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary export-btn" onclick="exportToCSV()">
-                📥 Export to CSV
-            </button>
+            <div style="display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
+                <button class="btn btn-primary export-btn" onclick="exportToCSV()">
+                    📥 Export to CSV
+                </button>
+                <button class="btn btn-secondary" onclick="exportToJSON()">
+                    📄 Export to JSON
+                </button>
+                <button class="btn btn-outline" onclick="document.getElementById('importFile').click()">
+                    📤 Import JSON
+                </button>
+                <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importSubmissions(event)">
+                <button class="btn btn-danger" onclick="clearAllSubmissions()">
+                    🗑️ Clear All
+                </button>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h4>📋 Important Note</h4>
+                <p style="color: #666; margin: 0;">
+                    <strong>Contact submissions are stored in browser localStorage.</strong><br>
+                    This means submissions are only visible in the same browser where they were submitted.<br>
+                    <em>To receive email notifications, enable the enhanced contact form in Phase 2.</em>
+                </p>
+            </div>
 
             <div id="submissionsList">
                 <div class="no-submissions">
@@ -202,13 +223,14 @@
                 return;
             }
 
-            let csv = 'Date,Name,Email\n';
+            let csv = 'Date,Name,Email,Message\n';
             
             submissions.forEach(submission => {
                 const date = new Date(submission.timestamp).toLocaleString();
                 const name = `"${submission.name.replace(/"/g, '""')}"`;
                 const email = `"${submission.email.replace(/"/g, '""')}"`;
-                csv += `${date},${name},${email}\n`;
+                const message = `"${(submission.message || '').replace(/"/g, '""')}"`;
+                csv += `${date},${name},${email},${message}\n`;
             });
 
             // Download CSV
@@ -221,6 +243,28 @@
             a.click();
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
+        }
+
+        // Export to JSON
+        function exportToJSON() {
+            ContactDataManager.exportToJSON();
+        }
+
+        // Import submissions
+        function importSubmissions(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    ContactDataManager.importSubmissions(e.target.result);
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Clear all submissions
+        function clearAllSubmissions() {
+            ContactDataManager.clearAllSubmissions();
         }
 
         // Load submissions on page load
