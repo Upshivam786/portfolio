@@ -8,14 +8,16 @@ class EnhancedContactForm {
 
     init() {
         if (this.form) {
-            this.form.addEventListener('submit', this.handleSubmit.bind(this));
+            // Save to localStorage before form submission
+            this.form.addEventListener('submit', this.handleLocalStorageSave.bind(this));
+            
+            // Check for success parameter in URL
+            this.checkForSuccess();
         }
     }
 
-    async handleSubmit(e) {
-        e.preventDefault();
-        
-        // Get form data directly
+    handleLocalStorageSave(e) {
+        // Get form data before submission
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
@@ -29,21 +31,26 @@ class EnhancedContactForm {
 
         // Validate required fields
         if (!name || !email) {
+            e.preventDefault();
             this.showNotification('Please fill in all required fields.', 'error');
             return;
         }
 
-        // Save to localStorage (current method)
+        // Save to localStorage
         this.saveToLocalStorage(data);
         
-        // Send email notification first
-        await this.sendEmailNotification(data);
-        
-        // Show success message
-        this.showNotification('Thank you for your message! I\'ll get back to you at upadhyayshivam1628@gmail.com soon.', 'success');
-        
-        // Reset form
-        this.form.reset();
+        // Let the form submit normally to FormSubmit.co
+        console.log('📧 Form data saved to localStorage, submitting to FormSubmit.co');
+    }
+
+    checkForSuccess() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            this.showNotification('Thank you for your message! I\'ll get back to you at upadhyayshivam1628@gmail.com soon.', 'success');
+            
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
     }
 
     saveToLocalStorage(data) {
