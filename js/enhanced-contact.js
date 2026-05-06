@@ -15,25 +15,35 @@ class EnhancedContactForm {
     async handleSubmit(e) {
         e.preventDefault();
         
-        const formData = new FormData(this.form);
+        // Get form data directly
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
         const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message'),
+            name: name,
+            email: email,
+            message: message,
             timestamp: new Date().toISOString()
         };
 
+        // Validate required fields
+        if (!name || !email) {
+            this.showNotification('Please fill in all required fields.', 'error');
+            return;
+        }
+
         // Save to localStorage (current method)
         this.saveToLocalStorage(data);
+        
+        // Send email notification first
+        await this.sendEmailNotification(data);
         
         // Show success message
         this.showNotification('Thank you for your message! I\'ll get back to you at upadhyayshivam1628@gmail.com soon.', 'success');
         
         // Reset form
         this.form.reset();
-        
-        // Send email notification (if configured)
-        this.sendEmailNotification(data);
     }
 
     saveToLocalStorage(data) {
@@ -45,6 +55,8 @@ class EnhancedContactForm {
     async sendEmailNotification(data) {
         // Method 1: FormSubmit.co (Free)
         try {
+            console.log('📧 Sending email notification with data:', data);
+            
             const formData = new FormData();
             formData.append('name', data.name);
             formData.append('email', data.email);
@@ -53,16 +65,23 @@ class EnhancedContactForm {
             formData.append('_template', 'table');
             formData.append('_captcha', 'false');
 
+            console.log('📤 FormData contents:');
+            for (let [key, value] of formData.entries()) {
+                console.log(`  ${key}: ${value}`);
+            }
+
             const response = await fetch('https://formsubmit.co/upadhyayshivam1628@gmail.com', {
                 method: 'POST',
                 body: formData
             });
             
+            console.log('📨 Response status:', response.status);
+            
             if (response.ok) {
                 console.log('✅ Email notification sent successfully');
                 this.showNotification('Message sent successfully! You will receive an email confirmation.', 'success');
             } else {
-                console.log('❌ Email notification failed');
+                console.log('❌ Email notification failed with status:', response.status);
                 this.showNotification('Message saved locally. Email notification failed.', 'warning');
             }
         } catch (error) {
