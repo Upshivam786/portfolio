@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Upload - SHIVAM UPADHYAY</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .upload-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        .upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background: var(--background-alt);
+        }
+        .upload-area.dragover {
+            border-color: var(--primary-color);
+            background: var(--background-alt);
+        }
+        .file-input {
+            display: none;
+        }
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .upload-text {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .upload-hint {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        .file-preview {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--background-alt);
+            border-radius: var(--radius-md);
+            display: none;
+        }
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .file-size {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        .upload-button {
+            margin-top: 1rem;
+        }
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 1rem;
+            display: none;
+        }
+        .error-message {
+            background: #ef4444;
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">← Back to Portfolio</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="upload-container">
+            <h2>Upload Resume</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                Upload your resume PDF to make it available for download on your portfolio.
+            </p>
+
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <p class="upload-text">
+                    <strong>Click to upload</strong> or drag and drop
+                </p>
+                <p class="upload-hint">
+                    PDF files only (MAX. 5MB)
+                </p>
+                <input type="file" id="fileInput" class="file-input" accept=".pdf,application/pdf">
+            </div>
+
+            <div class="file-preview" id="filePreview">
+                <div class="file-info">
+                    <div>
+                        <div class="file-name" id="fileName"></div>
+                        <div class="file-size" id="fileSize"></div>
+                    </div>
+                    <button type="button" class="btn btn-outline" onclick="clearFile()">Remove</button>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary upload-button" id="uploadButton" onclick="uploadFile()" disabled>
+                Upload Resume
+            </button>
+
+            <div class="success-message" id="successMessage">
+                ✅ Resume uploaded successfully! It will be available at /resume.pdf
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                ❌ Upload failed. Please try again.
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const filePreview = document.getElementById('filePreview');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const uploadButton = document.getElementById('uploadButton');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        let selectedFile = null;
+
+        // Click to upload
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        // File selection
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            // Validate file type
+            if (file.type !== 'application/pdf') {
+                showError('Please upload a PDF file only.');
+                return;
+            }
+
+            // Validate file size (5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                showError('File size must be less than 5MB.');
+                return;
+            }
+
+            selectedFile = file;
+            displayFilePreview(file);
+            uploadButton.disabled = false;
+            hideMessages();
+        }
+
+        function displayFilePreview(file) {
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            filePreview.style.display = 'block';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function clearFile() {
+            selectedFile = null;
+            fileInput.value = '';
+            filePreview.style.display = 'none';
+            uploadButton.disabled = true;
+            hideMessages();
+        }
+
+        async function uploadFile() {
+            if (!selectedFile) return;
+
+            uploadButton.disabled = true;
+            uploadButton.textContent = 'Uploading...';
+
+            const formData = new FormData();
+            formData.append('resume', selectedFile);
+
+            try {
+                const response = await fetch('/upload-resume', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    showSuccess();
+                    clearFile();
+                } else {
+                    showError('Upload failed. Please try again.');
+                }
+            } catch (error) {
+                showError('Network error. Please try again.');
+            }
+
+            uploadButton.disabled = false;
+            uploadButton.textContent = 'Upload Resume';
+        }
+
+        function showSuccess() {
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+
+        function showError(message) {
+            errorMessage.textContent = '❌ ' + message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function hideMessages() {
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
