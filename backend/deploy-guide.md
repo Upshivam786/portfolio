@@ -72,9 +72,9 @@ git push origin gh-pages
 ### Step 2: Configure Environment Variables
 In Railway project settings:
 ```
-EMAIL_USER=upadhyayshivam1628@gmail.com
-EMAIL_PASS=nqgcpdqqxgmezjt
-MONGODB_URI=mongodb+srv://upshivam786:portfolio123@cluster0.mongodb.net/portfolio
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-16-character-app-password
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
 PORT=3001
 NODE_ENV=production
 JWT_SECRET=portfolio-jwt-secret-key-2026
@@ -104,24 +104,23 @@ Update the API endpoint in `html/js/phase2-contact.js` to your Railway URL.
 3. Select cloud provider and region
 4. Click "Create Cluster"
 
-### Step 3: Create Database User
+### Step 2: Create Database User
 1. Go to "Database Access"
 2. Click "Add New Database User"
-3. Username: `upshivam786`
-4. Password: `portfolio123`
-5. Click "Add User"
+3. Choose a secure username and password
+4. Click "Add User"
 
-### Step 4: Configure Network Access
+### Step 3: Configure Network Access
 1. Go to "Network Access"
 2. Click "Add IP Address"
 3. Choose "Allow Access from Anywhere" (0.0.0.0/0)
 4. Click "Confirm"
 
-### Step 5: Get Connection String
+### Step 4: Get Connection String
 1. Go to "Database" → "Connect"
 2. Choose "Connect your application"
 3. Copy the connection string
-4. Replace `<password>` with `portfolio123`
+4. Replace `<password>` with your actual password
 5. Use this in your environment variables
 
 ## 📧 Test Email Configuration
