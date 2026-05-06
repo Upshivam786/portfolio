@@ -77,9 +77,10 @@ function calculateSpamScore(data) {
     // Check for suspicious patterns
     if (data.message && data.message.toLowerCase().includes('http')) score += 2;
     if (data.message && data.message.toLowerCase().includes('click here')) score += 1;
-    if (data.name && data.name.toLowerCase().includes('test')) score += 1;
+    // Removed 'test' detection - too many false positives
     if (data.email && data.email.includes('+')) score += 1;
     
+    console.log('🔍 Spam score for', data.name, ':', score);
     return score;
 }
 
@@ -147,6 +148,10 @@ app.post('/api/contact', async (req, res) => {
 // Send email notification
 async function sendEmailNotification(contact) {
     try {
+        console.log('📧 Preparing email notification for:', contact);
+        console.log('📧 Email user:', process.env.EMAIL_USER);
+        console.log('📧 Email pass configured:', process.env.EMAIL_PASS ? 'Yes' : 'No');
+        
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: 'upadhyayshivam1628@gmail.com',
@@ -176,11 +181,13 @@ async function sendEmailNotification(contact) {
             `
         };
         
-        await transporter.sendMail(mailOptions);
-        console.log('✅ Email notification sent for:', contact.name);
+        console.log('📧 Sending email...');
+        const result = await transporter.sendMail(mailOptions);
+        console.log('✅ Email notification sent successfully:', result.messageId);
         
     } catch (error) {
         console.error('❌ Email notification failed:', error);
+        console.error('❌ Error details:', error.message);
     }
 }
 
