@@ -29,6 +29,8 @@ class EnhancedContactForm {
             timestamp: new Date().toISOString()
         };
 
+        console.log('📧 Saving form data to localStorage:', data);
+
         // Validate required fields
         if (!name || !email) {
             e.preventDefault();
