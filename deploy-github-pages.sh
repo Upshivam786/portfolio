@@ -28,7 +28,8 @@ git checkout gh-pages
 
 # Copy built files
 echo "📁 Copying files..."
-cp -r html/* ./
+cp html/index.html ./
+cp html/resume.pdf ./
 cp -r html/css ./
 cp -r html/js ./
 cp -r html/assets ./
@@ -38,7 +39,7 @@ touch .nojekyll
 
 # Create proper index.html
 if [ ! -f "index.html" ]; then
-    echo "❌ index.html not found in html directory"
+    echo "❌ index.html not found"
     git checkout main
     exit 1
 fi
