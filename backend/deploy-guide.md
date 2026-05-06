@@ -18,11 +18,11 @@
 2. Add these secrets:
    ```
    EMAIL_USER=upadhyayshivam1628@gmail.com
-   EMAIL_PASS=nqgcpdqqxgmezjt
-   MONGODB_URI=mongodb+srv://upshivam786:portfolio123@cluster0.mongodb.net/portfolio
+   EMAIL_PASS=************
+   MONGODB_URI=mongodb********************
    PORT=3001
    NODE_ENV=production
-   JWT_SECRET=portfolio-jwt-secret-key-2026
+   JWT_SECRET=portfoli*******
    RATE_LIMIT_WINDOW_MS=900000
    RATE_LIMIT_MAX_REQUESTS=5
    ```
