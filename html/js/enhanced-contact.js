@@ -45,20 +45,17 @@ class EnhancedContactForm {
     async sendEmailNotification(data) {
         // Method 1: FormSubmit.co (Free)
         try {
-            const response = await fetch('https://formsubmit.co/ajax/upadhyayshivam1628@gmail.com', {
+            const formData = new FormData();
+            formData.append('name', data.name);
+            formData.append('email', data.email);
+            formData.append('message', data.message || 'Contact request from portfolio');
+            formData.append('_subject', `Portfolio Contact: ${data.name}`);
+            formData.append('_template', 'table');
+            formData.append('_captcha', 'false');
+
+            const response = await fetch('https://formsubmit.co/upadhyayshivam1628@gmail.com', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: data.name,
-                    email: data.email,
-                    message: data.message || 'Contact request from portfolio',
-                    _subject: `Portfolio Contact: ${data.name}`,
-                    _template: 'table',
-                    _captcha: 'false'
-                })
+                body: formData
             });
             
             if (response.ok) {
