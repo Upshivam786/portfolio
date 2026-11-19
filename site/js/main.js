@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // textContent/DOM methods only, never innerHTML.
 const DEV_PROFILE_URL = 'https://dev.to/upshivam786';
 const DEV_ARTICLES_API = 'https://dev.to/api/articles?username=upshivam786&per_page=5';
-const DEV_MAX_ARTICLES = 5;
+const DEV_MAX_ARTICLES = 4;
 const DEV_TIMEOUT_MS = 8000;
 
 function initDevArticles() {
