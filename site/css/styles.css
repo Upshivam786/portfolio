@@ -449,6 +449,7 @@ h6 { font-size: 1.125rem; }
 }
 
 .project-header {
+    flex: 1 1 auto;
     padding: 1.5rem;
     border-bottom: 1px solid var(--border-color);
 }
@@ -627,6 +628,101 @@ h6 { font-size: 1.125rem; }
 .projects-more {
     text-align: center;
     margin-top: 2.5rem;
+}
+
+/* Latest Articles & AI / Open Source */
+.articles {
+    padding: 6rem 0;
+    background: var(--background);
+}
+
+.open-source {
+    padding: 6rem 0;
+    background: var(--background-alt);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 2rem;
+}
+
+.articles-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--background-alt);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+.article-title-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.article-title-link:hover {
+    color: var(--primary-color);
+}
+
+.article-date {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.project-title,
+.project-description {
+    overflow-wrap: anywhere;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hf-profile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--accent-color);
+}
+
+.hf-profile-text {
+    flex: 1 1 18rem;
+    min-width: 0;
+}
+
+.hf-profile-bio {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.section-more {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.section-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
 }
 
 /* Contact Section */
