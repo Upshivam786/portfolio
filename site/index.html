@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIVAM UPADHYAY - DevOps / AIOps / MLOps Engineer</title>
+    <meta name="description" content="Shivam Upadhyay - DevOps / AIOps / MLOps Engineer. Cloud infrastructure, CI/CD, containerization, AI/ML deployments and observability.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KXW7QN93NF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KXW7QN93NF', {
+            'anonymize_ip': true,
+            'cookie_domain': 'upshivam786.github.io'
+        });
+    </script>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="#home" class="brand-link">SHIVAM UPADHYAY</a>
+            </div>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">SHIVAM UPADHYAY</h1>
+                    <p class="hero-subtitle">DEVOPS | AIOPS | MLOPS ENGINEER</p>
+                    <p class="hero-description">
+                        Cloud infrastructure, CI/CD, containerization and AI/ML deployments,
+                        with a focus on observability and production reliability.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        <a href="assets/resume/Shivam_Upadhyay_DevOps_Resume.pdf" class="btn btn-outline" download>Download Resume</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-avatar">
+                        <div class="avatar-placeholder">SU</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <p class="about-text">
+                            I'm a DevOps / MLOps Engineer at Vipani.ai, working on cloud infrastructure, CI/CD,
+                            containerization and AI/ML deployments. My work spans Python, Linux, GCP, Kubernetes,
+                            Docker and observability, including AI workloads, GPU-enabled infrastructure and
+                            production deployments.
+                        </p>
+                        <p class="about-text">
+                            I hold an M.Tech from IIT Hyderabad and was a DAAD-KOSPIE Research Fellow at
+                            TU Braunschweig, Germany. I'm interested in AI-driven software validation, GPU computing,
+                            test automation and intelligent system monitoring.
+                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">☁️</span>
+                                <span>Cloud Infrastructure &amp; CI/CD</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🤖</span>
+                                <span>MLOps &amp; LLM Observability</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">📈</span>
+                                <span>AIOps, Monitoring &amp; Reliability</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="6">6</span>
+                            <span class="stat-label">Featured Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="2">2</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">DevOps / MLOps Engineer</h3>
+                                <p class="timeline-org">Vipani.ai, Hyderabad</p>
+                            </div>
+                            <span class="timeline-date">Jul 2025 – Present</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Manage GCP infrastructure supporting AI/ML and backend workloads, deploying production Hybrid RAG and semantic search applications using Cloud Run, Neo4j, Qdrant and SentenceTransformers.</li>
+                            <li>Built Docker-based Bitbucket CI/CD pipelines for FastAPI, OCR and ETL services, automating builds, Trivy vulnerability scanning and deployments through Artifact Registry and Cloud Run.</li>
+                            <li>Provisioned GCP Compute Engine infrastructure for multi-agent LangGraph workflows and configured systemd-managed FastAPI services with automated restart and recovery.</li>
+                            <li>Designed and maintained PostgreSQL CDC pipelines using Debezium, Apache Kafka and ClickHouse for near-real-time synchronization.</li>
+                            <li>Integrated Langfuse-based LLM observability across multi-agent workflows for generation-level tracing of latency, token consumption, model usage and inference costs.</li>
+                            <li>Managed Linux infrastructure, GCP IAM, VPC networking, secrets, database backups and recovery, and GPU-enabled compute for OCR workloads.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="project-topic">GCP</span>
+                            <span class="project-topic">Docker</span>
+                            <span class="project-topic">Cloud Run</span>
+                            <span class="project-topic">Bitbucket CI/CD</span>
+                            <span class="project-topic">LangGraph</span>
+                            <span class="project-topic">Langfuse</span>
+                            <span class="project-topic">Kafka</span>
+                        </div>
+                    </article>
+                    <article class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">DAAD-KOSPIE Research Fellow</h3>
+                                <p class="timeline-org">PLRI Lab (Peter L. Reichertz Institute for Medical Informatics), TU Braunschweig, Germany</p>
+                            </div>
+                            <span class="timeline-date">Sep 2024 – Mar 2025</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Worked on an 8-service distributed healthcare application (ISAN) supporting emergency alerting, medical response and workflow coordination.</li>
+                            <li>Containerized and orchestrated 3 core application systems and 5 supporting services using Docker and Docker Compose, including MySQL integration and service configuration.</li>
+                            <li>Troubleshot container networking, inter-service communication, database connectivity and deployment dependencies.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="project-topic">Docker</span>
+                            <span class="project-topic">Docker Compose</span>
+                            <span class="project-topic">MySQL</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (curated; see decision/projects.md) -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid" id="projects-grid">
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Self-Hosted MLOps Model Registry</h3>
+                            <p class="project-description">
+                                A self-hosted, production-style MLOps platform for the complete ML lifecycle: model
+                                registration, versioning, artifact storage, experiment tracking, audit logging and model governance.
+                            </p>
+                            <div class="project-meta">
+                                <span class="project-language">Python</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-topics">
+                                <span class="project-topic">FastAPI</span>
+                                <span class="project-topic">PostgreSQL</span>
+                                <span class="project-topic">GCS</span>
+                                <span class="project-topic">GitHub Actions</span>
+                            </div>
+                            <a href="https://github.com/Upshivam786/mlops-model-registry" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Terraform GCP Infrastructure Automation</h3>
+                            <p class="project-description">
+                                Production-style GCP infrastructure built with Terraform: modular, environment-isolated
+                                and scalable, covering VPC, IAM, Secret Manager, Managed Instance Groups and an HTTP Load Balancer.
+                            </p>
+                            <div class="project-meta">
+                                <span class="project-language">HCL</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-topics">
+                                <span class="project-topic">Terraform</span>
+                                <span class="project-topic">GCP</span>
+                                <span class="project-topic">Compute Engine</span>
+                            </div>
+                            <a href="https://github.com/Upshivam786/Terraform-infra" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">AIOps MLOps Pipeline</h3>
+                            <p class="project-description">
+                                End-to-end MLOps demo: train, track, serve, monitor and drift-check a scikit-learn model
+                                with MLflow, FastAPI, Docker, Prometheus, Grafana and GitHub Actions CI.
+                            </p>
+                            <div class="project-meta">
+                                <span class="project-language">Python</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-topics">
+                                <span class="project-topic">MLflow</span>
+                                <span class="project-topic">Prometheus</span>
+                                <span class="project-topic">Grafana</span>
+                            </div>
+                            <a href="https://github.com/Upshivam786/aiops-ml-pipeline" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">CAST AI GKE Cost Optimization</h3>
+                            <p class="project-description">
+                                A hands-on Kubernetes cost optimization lab demonstrating how CAST AI monitors, analyzes and
+                                automatically rightsizes workloads running on Google Kubernetes Engine (GKE).
+                            </p>
+                            <div class="project-meta">
+                                <span class="project-language">Python</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-topics">
+                                <span class="project-topic">CAST AI</span>
+                                <span class="project-topic">GKE</span>
+                                <span class="project-topic">Kubernetes</span>
+                            </div>
+                            <a href="https://github.com/Upshivam786/castai-gke-workload-optimization-lab" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Production CI/CD Dashboard</h3>
+                            <p class="project-description">
+                                Frontend CI/CD deployment: every push to main runs lint checks, a production build, Docker
+                                image build and push, and SSH deployment to a Google Cloud VM through Bitbucket Pipelines.
+                            </p>
+                            <div class="project-meta">
+                                <span class="project-language">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-topics">
+                                <span class="project-topic">Bitbucket Pipelines</span>
+                                <span class="project-topic">Docker</span>
+                                <span class="project-topic">GCP</span>
+                            </div>
+                            <a href="https://github.com/Upshivam786/devops-cicd-dashboard" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Azure Cloud Cost Intelligence</h3>
+                            <p class="project-description">
+                                Cost Detective scans an Azure Resource Group, enriches each resource with cost, utilization and
+                                pricing data from Azure's APIs, and produces deterministic cost optimization recommendations.
+                                An LLM only writes the plain-English explanation.
+                            </p>
+                            <div class="project-meta">
+                                <span class="project-language">Python</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-topics">
+                                <span class="project-topic">Azure</span>
+                                <span class="project-topic">FastAPI</span>
+                                <span class="project-topic">React</span>
+                            </div>
+                            <a href="https://github.com/Upshivam786/cost-detective-intelligence-platform" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+                        </div>
+                    </article>
+                </div>
+                <p class="projects-more">
+                    <a href="https://github.com/Upshivam786?tab=repositories" target="_blank" rel="noopener" class="project-link">See all repositories on GitHub →</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section (from resume) -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Skills &amp; Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Cloud &amp; Infrastructure</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">Cloud Run</span>
+                            <span class="skill-tag">GKE</span>
+                            <span class="skill-tag">Compute Engine (GPU)</span>
+                            <span class="skill-tag">Artifact Registry</span>
+                            <span class="skill-tag">Cloud SQL</span>
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">IAM</span>
+                            <span class="skill-tag">VPC</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>DevOps &amp; CI/CD</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Docker Compose</span>
+                            <span class="skill-tag">Bitbucket Pipelines</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">systemd</span>
+                            <span class="skill-tag">Trivy</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>MLOps &amp; AIOps</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MLflow</span>
+                            <span class="skill-tag">Model Registry</span>
+                            <span class="skill-tag">Model Versioning</span>
+                            <span class="skill-tag">Experiment Tracking</span>
+                            <span class="skill-tag">Model Deployment</span>
+                            <span class="skill-tag">Drift Detection</span>
+                            <span class="skill-tag">Automated Retraining</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>AI / LLMOps</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">LangGraph</span>
+                            <span class="skill-tag">Langfuse</span>
+                            <span class="skill-tag">OpenTelemetry</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">Multi-Agent Systems</span>
+                            <span class="skill-tag">LLM Observability</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Monitoring &amp; Observability</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Prometheus</span>
+                            <span class="skill-tag">Grafana</span>
+                            <span class="skill-tag">Distributed Tracing</span>
+                            <span class="skill-tag">Logging</span>
+                            <span class="skill-tag">Performance Monitoring</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Programming &amp; Data</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Kafka</span>
+                            <span class="skill-tag">Debezium</span>
+                            <span class="skill-tag">ClickHouse</span>
+                            <span class="skill-tag">Neo4j</span>
+                            <span class="skill-tag">Qdrant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-grid">
+                    <article class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">M.Tech, Medical Device Innovation</h3>
+                                <p class="timeline-org">IIT Hyderabad</p>
+                            </div>
+                            <span class="timeline-date">2025</span>
+                        </div>
+                        <p class="education-grade">CGPA 9.37</p>
+                    </article>
+                    <article class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">B.Tech, Biotechnology</h3>
+                                <p class="timeline-org">Bundelkhand University</p>
+                            </div>
+                            <span class="timeline-date">2023</span>
+                        </div>
+                        <p class="education-grade">CGPA 8.15</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Innovation Section (from resume) -->
+        <section id="research" class="research">
+            <div class="container">
+                <h2 class="section-title">Research &amp; Innovation</h2>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 class="timeline-role">Transmission of Vital Data in Emergencies Using ISAN</h3>
+                            <span class="timeline-date">Publication · 2025</span>
+                        </div>
+                        <p class="timeline-org">Upadhyay S et al., Studies in Health Technology and Informatics, 2025; 332:160–164</p>
+                    </article>
+                    <article class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 class="timeline-role">Single-Arm, Single-Lead ECG Using 3D-Printed Dry Electrodes</h3>
+                            <span class="timeline-date">Poster · 2025</span>
+                        </div>
+                        <p class="timeline-org">IEEE EMBC 2025, Copenhagen, Denmark</p>
+                    </article>
+                    <article class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 class="timeline-role">System and Method for Real-Time ECG Monitoring Using a Single-Arm, Single-Lead Dry Electrode</h3>
+                            <span class="timeline-date">Patent</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements & Certifications Section (from resume) -->
+        <section id="achievements" class="achievements">
+            <div class="container">
+                <h2 class="section-title">Achievements &amp; Certifications</h2>
+                <div class="education-grid">
+                    <article class="timeline-item">
+                        <h3 class="timeline-role">Achievements</h3>
+                        <ul class="timeline-points">
+                            <li>DAAD-KOSPIE Scholar – TU Braunschweig, Germany</li>
+                            <li>Academic Excellence Award – IIT Hyderabad</li>
+                            <li>LIC HFL Scholastic Achievement Award</li>
+                            <li>GATE Qualified (BT, XL) 2022 &amp; 2023</li>
+                            <li>GAT-B &amp; BITP 2023</li>
+                        </ul>
+                    </article>
+                    <article class="timeline-item">
+                        <h3 class="timeline-role">Certifications</h3>
+                        <ul class="timeline-points">
+                            <li>Google Cloud Fundamentals</li>
+                            <li>MLOps – Udemy</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p class="contact-text">
+                            I'm open to DevOps, AIOps and MLOps opportunities and collaborations.
+                            The best way to reach me is by email, or connect with me on LinkedIn or GitHub.
+                        </p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="contact-icon">📧</span>
+                                <a href="mailto:upadhyayshivam1628@gmail.com" class="contact-link">upadhyayshivam1628@gmail.com</a>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">💼</span>
+                                <a href="https://linkedin.com/in/su021" target="_blank" rel="noopener" class="contact-link">LinkedIn Profile</a>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">🐙</span>
+                                <a href="https://github.com/Upshivam786" target="_blank" rel="noopener" class="contact-link">GitHub Profile</a>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">📄</span>
+                                <a href="assets/resume/Shivam_Upadhyay_DevOps_Resume.pdf" target="_blank" rel="noopener" class="contact-link">Download Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SHIVAM UPADHYAY</h3>
+                    <p>DevOps / AIOps / MLOps Engineer</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#experience">Experience</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#research">Research</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://github.com/Upshivam786" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/su021" target="_blank" rel="noopener">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SHIVAM UPADHYAY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

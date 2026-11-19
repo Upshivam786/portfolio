@@ -40,3 +40,9 @@ coverage/
 # Temporary files
 tmp/
 temp/
+
+# Claude Code local settings (machine-specific, never publish)
+.claude/settings.local.json
+
+# GitHub Pages build artifact (assembled by the workflow)
+_site/
